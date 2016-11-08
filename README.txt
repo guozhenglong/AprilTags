@@ -60,3 +60,51 @@ todo:
 - replacing arctan2 by precomputed lookup table
 - converting matrix operations to Eigen (mostly for simplifying code,
   maybe some speedup)
+
+
+
+
+#####################
+  What are AprilTags?
+
+AprilTags are 2D barcodes developed for robotics applications by Ed Olson. The library detects any April tags in a given image, provides the unique ID of the tag as well as its location in the image. If the camera is calibrated and the physical size of the tag known, also provides the relative transform between tag and camera.
+
+
+Examples of different tag families (number of bits versus minimum Hamming distance between valid tags).
+
+
+Apriltag detections in an image (see examples/apriltags_demo.cpp).
+
+Copyright and License
+
+This library is based on the original Java code by Ed Olson (used with permission) available in his April library, and on the original C++ port by Jeffrey Boyland and David Touretzky as part of Tekkotsu.
+The AprilTags C++ library is available as open source under GNU LGPL version 2.1.
+
+Download and Install
+
+AprilTags mainly depends on OpenCV and Eigen3. All dependencies can be installed in Linux (tested on Ubuntu 12.04) with the following command:
+
+sudo apt-get install subversion cmake libopencv-dev libeigen3-dev libv4l-dev
+and in Mac OS X (tested on 10.8.2) with:
+
+sudo port install pkgconfig opencv eigen3
+You can check out AprilTags from our public svn repository:
+
+svn co https://svn.csail.mit.edu/apriltags
+The AprilTags library uses the pods build system in connection with cmake. Compile with
+
+cd apriltags
+make
+After compiling, run the example program
+
+./build/bin/apriltags_demo
+which detects AprilTags visible in laptop or webcam images and marks any tags in the live image. See examples/apriltags_demo.cpp for the source code.
+Publication
+
+Ed Olson, AprilTag: A robust and flexible visual fiducial system, Proceedings of the IEEE International Conference on Robotics and Automation (ICRA), 2011
+
+Last updated: Mar 27, 2013 by kaess@mit.edu
+StatCounter - Free Web Tracker and Counter
+
+
+more information: http://people.csail.mit.edu/kaess/apriltags/
